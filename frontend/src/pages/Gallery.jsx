@@ -10,7 +10,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await fetch("/api/photos");
+        const response = await fetch("https://photo-shop-backend-p0zb.onrender.com/api/photos");
         const data = await response.json();
         setPhotos(data);
       } catch (err) {
@@ -24,7 +24,7 @@ const Gallery = () => {
 
   return (
     <section className="min-h-screen bg-[#0a0a0a] text-white py-16 px-4 md:px-20">
-      
+
       {/* Header - Simple & Clean */}
       <div className="container mx-auto text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
@@ -41,8 +41,8 @@ const Gallery = () => {
       ) : (
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
           {photos.map((photo) => (
-            <div 
-              key={photo._id} 
+            <div
+              key={photo._id}
               className="relative group overflow-hidden rounded-2xl cursor-pointer break-inside-avoid"
               onClick={() => setSelectedPhoto(photo)}
             >
@@ -72,7 +72,7 @@ const Gallery = () => {
       {selectedPhoto && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300">
           {/* Close Button */}
-          <button 
+          <button
             onClick={() => setSelectedPhoto(null)}
             className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-white z-[60]"
           >
@@ -93,8 +93,8 @@ const Gallery = () => {
           </div>
 
           {/* Backdrop click to close */}
-          <div 
-            className="absolute inset-0 -z-10" 
+          <div
+            className="absolute inset-0 -z-10"
             onClick={() => setSelectedPhoto(null)}
           ></div>
         </div>

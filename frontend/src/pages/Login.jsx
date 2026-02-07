@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/admin/login", {
+      const response = await fetch("https://photo-shop-backend-p0zb.onrender.com/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: credentials.user, password: credentials.pass }),

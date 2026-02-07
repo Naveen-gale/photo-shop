@@ -11,7 +11,7 @@ const Dashboard = () => {
   // 1. Fetch Photos from your "getAllPhotos" Backend Route
   const fetchPhotos = async () => {
     try {
-      const response = await fetch("/api/photos");
+      const response = await fetch("https://photo-shop-backend-p0zb.onrender.com/api/photos");
       const data = await response.json();
       setPhotos(data);
     } catch (err) {
@@ -28,7 +28,7 @@ const Dashboard = () => {
     formData.append("image", file);
 
     try {
-      const res = await fetch("/api/photos/upload", {
+      const res = await fetch("https://photo-shop-backend-p0zb.onrender.com/api/photos/upload", {
         method: "POST",
         body: formData,
         credentials: "include", // Send auth cookie
@@ -48,7 +48,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Delete this photo from ImageKit and DB?")) {
       try {
-        await fetch(`/api/photos/${id}`, {
+        await fetch(`https://photo-shop-backend-p0zb.onrender.com/api/photos/${id}`, {
           method: "DELETE",
           credentials: "include", // Send auth cookie
         });
