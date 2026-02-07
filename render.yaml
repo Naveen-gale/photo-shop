@@ -1,13 +1,11 @@
 services:
   - type: web
-    name: photo-grapehare-backend
+    name: photo-shop-backend
     env: node
-    region: singapore
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && node server.js
+    rootDirectory: backend
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
-      - key: NODE_VERSION
-        value: 20.11.0
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
